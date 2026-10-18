@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-public class HelloCounter {
+public class HelloController {
     @GetMapping("/hello")
     public String hello() {
         return "Hello, Spring Boot!";
