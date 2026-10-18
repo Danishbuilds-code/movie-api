@@ -8,13 +8,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
 
     private final GreetingService greetingService;
+    private final MessageService messageService;
 
-    public GreetingController(GreetingService greetingService) {
+    public GreetingController(GreetingService greetingService, MessageService messageService) {
         this.greetingService = greetingService;
+        this.messageService = messageService;
     }
 
     @GetMapping("/greeting")
     public String greeting(@RequestParam(defaultValue = "Danish") String name) {
         return greetingService.greet(name);
+    }
+
+    @GetMapping("/welcome")
+    public String welcome(){
+        return messageService.getMessage();
     }
 }
